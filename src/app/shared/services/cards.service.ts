@@ -9,9 +9,9 @@ import {
   deleteDoc
 } from '@angular/fire/firestore';
 import firebase from 'firebase/compat';
-import { Card } from '../models/card.model';
 import { Observable } from 'rxjs';
 import { collection as colRef, query } from 'firebase/firestore';
+import { Card } from '../models/cards';
 import Firestore = firebase.firestore.Firestore;
 
 @Injectable({

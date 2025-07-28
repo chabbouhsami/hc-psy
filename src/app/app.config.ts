@@ -7,6 +7,6 @@ import initializeApp = firebase.initializeApp;
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),]
 };
