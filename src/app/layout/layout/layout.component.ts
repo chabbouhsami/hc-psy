@@ -5,20 +5,19 @@ import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
 
 @Component({
-  selector: 'app-layout',
-  template: `
+    selector: 'app-layout',
+    template: `
     <app-header></app-header>
     <app-container>
       <router-outlet></router-outlet>
     </app-container>
     <app-footer></app-footer>
   `,
-  imports: [
-    ContainerComponent,
-    HeaderComponent,
-    RouterOutlet,
-    FooterComponent
-  ],
-  standalone: true
+    imports: [
+        ContainerComponent,
+        HeaderComponent,
+        RouterOutlet,
+        FooterComponent
+    ]
 })
 export class LayoutComponent {}
