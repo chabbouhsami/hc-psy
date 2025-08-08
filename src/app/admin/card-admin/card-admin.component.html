@@ -1,1 +1,11 @@
-<p>card-admin works!</p>
+<div class="card-admin">
+  <h1>Gestion des Cards</h1>
+
+  <section class="card-form-section">
+    <app-card-form (submitted)="reloadList()"></app-card-form>
+  </section>
+
+  <section class="card-list-section">
+    <app-card-list></app-card-list>
+  </section>
+</div>

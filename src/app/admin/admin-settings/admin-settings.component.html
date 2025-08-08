@@ -1,0 +1,49 @@
+<div class="admin-settings">
+  <h2>Informations du cabinet</h2>
+
+  <form (ngSubmit)="saveInfos()">
+    <label>
+      Nom
+      <input [(ngModel)]="infos().name" name="name"/>
+    </label>
+
+    <label>
+      Téléphone
+      <input [(ngModel)]="infos().phone" name="phone"/>
+    </label>
+
+    <label>
+      Email
+      <input [(ngModel)]="infos().email" name="email"/>
+    </label>
+
+    <label>
+      Adeli
+      <input [(ngModel)]="infos().adeli" name="adeli"/>
+    </label>
+
+    <label>
+      Spécialités
+      <input [(ngModel)]="infos().speciality" name="speciality"/>
+    </label>
+
+    <label>
+      Adresse
+      <input [(ngModel)]="infos().address" name="address"/>
+    </label>
+
+    <label>
+      Image du header :
+      <app-image-uploader
+        [category]="'header'"
+        (imageUploaded)="updateHeaderImage($event)"
+      />
+    </label>
+
+    @if (infos().headerImageUrl) {
+      <img [src]="infos().headerImageUrl" alt="Preview" class="preview"/>
+    }
+
+    <button type="submit">💾 Enregistrer</button>
+  </form>
+</div>

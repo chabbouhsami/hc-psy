@@ -1,0 +1,19 @@
+<nav class="main-nav">
+  <div class="nav-content">
+    <button class="burger" (click)="toggleMenu()">☰</button>
+
+    <ul class="menu-list" [class.open]="menuOpen()">
+      @for (link of links; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            (click)="closeMenu()"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</nav>

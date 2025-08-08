@@ -1,16 +1,20 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { Card } from '../models/cards';
 
 @Component({
-    selector: 'app-cards',
-    imports: [
-        RouterLink
-    ],
-    templateUrl: './cards.component.html',
-    styleUrl: './cards.component.scss'
+  selector: 'app-cards',
+  imports: [
+    NgOptimizedImage,
+  ],
+  templateUrl: './cards.component.html',
+  standalone: true,
+  styleUrl: './cards.component.scss'
 })
 export class CardsComponent {
-  @Input() cards: Card | undefined;
-
+  @Input() title!: string;
+  @Input() subtitle?: string;
+  @Input() excerpt?: string;
+  @Input() imageUrl?: string;
+  @Input() buttonText = 'En savoir plus';
+  @Input() targetSlug!: string;
 }

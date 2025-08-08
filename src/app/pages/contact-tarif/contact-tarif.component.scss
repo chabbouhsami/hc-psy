@@ -1,0 +1,97 @@
+$color-navy: #1A2A4C;
+$color-yellow: #F6C758;
+
+.contact-tarif {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+  color: $color-navy;
+
+  h2 {
+    font-size: 2rem;
+    margin: 2rem 0 1.5rem;
+    color: $color-navy;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      margin: 0.5rem auto;
+      width: 60px;
+      height: 3px;
+      background-color: $color-yellow;
+    }
+  }
+
+  .contact-infos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    .info-block {
+      width: 200px;
+      text-align: center;
+
+      i.fas {
+        font-size: 1.8rem;
+        color: $color-yellow;
+        margin-bottom: 0.5rem;
+      }
+
+      i.icon {
+        display: block;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        color: $color-yellow;
+      }
+
+      p {
+        font-size: 1rem;
+        margin: 0;
+      }
+    }
+  }
+
+  .tarif-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+
+    .tarif-card {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+      text-align: center;
+
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: $color-navy;
+      }
+
+      .prix {
+        font-weight: bold;
+        color: $color-yellow;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .desc {
+        font-size: 0.95rem;
+        color: #555;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .contact-infos {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

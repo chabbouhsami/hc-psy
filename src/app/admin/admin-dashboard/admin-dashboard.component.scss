@@ -1,0 +1,35 @@
+@use 'variables' as *;
+
+.admin-dashboard {
+  padding: 2rem;
+  text-align: center;
+
+  h2 {
+    color: $color-navy;
+    margin-bottom: 2rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: 1rem 0;
+
+      a {
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: $color-navy;
+        background: $color-yellow;
+        padding: 0.8rem 1.2rem;
+        border-radius: 8px;
+        display: inline-block;
+
+        &:hover {
+          background: darken($color-yellow, 10%);
+        }
+      }
+    }
+  }
+}

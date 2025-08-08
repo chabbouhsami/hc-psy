@@ -1,0 +1,144 @@
+.admin-tarifs {
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+
+  h2 {
+    margin-bottom: 1rem;
+    color: #1A2A4C; // $color-navy
+    font-size: 1.6rem;
+  }
+
+  .tarif-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tarif-card {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    padding: 1rem 1.2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+    h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #1A2A4C;
+    }
+
+    .prix {
+      font-weight: bold;
+      color: #F6C758; // $color-yellow
+      margin-bottom: 0.5rem;
+    }
+
+    .desc {
+      color: #444;
+      font-size: 0.95rem;
+    }
+
+    .actions {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+
+      button {
+        padding: 0.4rem 0.8rem;
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: white;
+
+        &.edit {
+          background-color: #0d6efd;
+
+          &:hover {
+            background-color: #0b5ed7;
+          }
+        }
+
+        &.delete {
+          background-color: #dc3545;
+
+          &:hover {
+            background-color: #bb2d3b;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+
+  .modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+
+    h2 {
+      margin-top: 0;
+      color: #1A2A4C;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 0.3rem;
+      font-size: 1rem;
+    }
+
+    .modal-actions {
+      margin-top: 1.5rem;
+      text-align: right;
+
+      button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+
+        &.save {
+          background-color: #198754;
+          color: white;
+
+          &:hover {
+            background-color: #146c43;
+          }
+        }
+
+        &.cancel {
+          background-color: #6c757d;
+          color: white;
+
+          &:hover {
+            background-color: #565e64;
+          }
+        }
+      }
+    }
+  }
+}

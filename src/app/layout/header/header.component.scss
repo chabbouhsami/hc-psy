@@ -1,74 +1,74 @@
-$primary-color: #004e92;
-$secondary-color: #ffffff;
+@use 'variables' as *;
 
-.site-header {
-  background-color: $primary-color;
-  color: $secondary-color;
-  padding: 1rem 0;
+.hero {
+  width: 100%;
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 
-  .container {
-    display: flex;
-    flex-direction: column;
-  }
+  .overlay {
+    background-color: rgba(26, 42, 76, 0.6);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
 
-  .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .logo {
-      font-size: 1.5rem;
-      margin: 0;
+    .name {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 0.3rem;
+      color: $color-yellow;
     }
 
-    .hamburger {
-      background: none;
-      border: none;
-      color: $secondary-color;
-      font-size: 2rem;
-      cursor: pointer;
-      display: none;
+    .speciality {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
     }
-  }
 
-  .main-nav {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    .contact {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
 
-    a {
-      color: $secondary-color;
-      text-decoration: none;
-
-      &.active {
-        text-decoration: underline;
+      p {
+        margin: 0.2rem 0;
       }
+    }
+
+    .btn-rdv {
+      background-color: $color-yellow;
+      color: $color-navy;
+      padding: 0.7rem 1.4rem;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
 
       &:hover {
-        opacity: 0.8;
+        background-color: darken($color-yellow, 10%);
       }
-    }
-
-    &.open {
-      display: flex;
-      flex-direction: column;
     }
   }
 }
 
 @media (max-width: 768px) {
-  .header-top .hamburger {
-    display: block;
-  }
+  .overlay {
+    padding: 1rem;
 
-  .main-nav {
-    display: none;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
+    .name {
+      font-size: 2rem;
+    }
 
-    &.open {
-      display: flex;
+    .speciality {
+      font-size: 1rem;
+    }
+
+    .contact {
+      font-size: 0.9rem;
     }
   }
 }

@@ -1,0 +1,77 @@
+@use 'variables' as *;
+
+.main-nav {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .burger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: $color-navy;
+    cursor: pointer;
+  }
+
+  .menu-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: $color-navy;
+
+      &.active,
+      &:hover {
+        color: $color-yellow;
+      }
+    }
+  }
+
+  // Mobile
+  @media (max-width: 768px) {
+    .burger {
+      display: block;
+    }
+
+    .menu-list {
+      position: absolute;
+      top: 64px;
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      border-bottom: 1px solid #ddd;
+
+      &.open {
+        max-height: fit-content;
+        transition: max-height 0.5s ease-in;
+        padding: 1rem 0;
+
+        li {
+          text-align: center;
+          padding: 0.5rem 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="image-uploader">
+  <label class="upload-label">
+    <input type="file" (change)="onFileSelected($event)" hidden />
+    <span class="upload-btn">📤 Choisir une image</span>
+  </label>
+
+  @if (uploadInProgress) {
+    <p>⏳ Téléchargement en cours...</p>
+  }
+
+  @if (file) {
+    <p>Fichier sélectionné : {{ file.name }}</p>
+  }
+</div>

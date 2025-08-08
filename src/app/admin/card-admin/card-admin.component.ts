@@ -5,11 +5,8 @@ import { CardListComponent } from '../card-list/card-list.component';
 @Component({
   selector: 'app-card-admin',
   standalone: true,
-  template: `
-    <h1>Administration des Cards</h1>
-    <app-card-form (submitted)="reloadList()"></app-card-form>
-    <app-card-list></app-card-list>
-  `,
+  templateUrl: 'card-admin.component.html',
+  styleUrl: 'card-admin.component.scss',
   imports: [
     CardFormComponent,
     CardListComponent

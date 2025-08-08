@@ -1,0 +1,41 @@
+<div class="admin-tarifs">
+  <h2>Gestion des tarifs</h2>
+
+  <button (click)="openModal()" class="add-tarif-btn">➕ Ajouter un tarif</button>
+
+  <div class="tarif-grid">
+    @for (t of tarifs(); track t.id) {
+      <div class="tarif-card">
+        <h3>{{ t.titre }}</h3>
+        <p class="prix">{{ t.prix }} €</p>
+        <p class="desc">{{ t.description }}</p>
+        <div class="actions">
+          <button class="edit" (click)="editTarif(t)">Modifier</button>
+          <button class="delete" (click)="deleteTarif(t)">Supprimer</button>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+@if (modalOpen) {
+  <div class="modal-backdrop">
+    <div class="modal">
+      <h2>{{ editingTarif ? 'Modifier le tarif' : 'Ajouter un tarif' }}</h2>
+
+      <label for="titre">Titre</label>
+      <input id="titre" type="text" [(ngModel)]="currentTarif.titre" />
+
+      <label for="prix">Prix</label>
+      <input id="prix" type="number" [(ngModel)]="currentTarif.prix" />
+
+      <label for="description">Description</label>
+      <textarea id="description" rows="3" [(ngModel)]="currentTarif.description"></textarea>
+
+      <div class="modal-actions">
+        <button class="save" (click)="saveTarif()">Enregistrer</button>
+        <button class="cancel" (click)="closeModal()">Annuler</button>
+      </div>
+    </div>
+  </div>
+}

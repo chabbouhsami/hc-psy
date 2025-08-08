@@ -1,0 +1,35 @@
+form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+
+  input,
+  textarea {
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+
+  textarea {
+    grid-column: span 2;
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  button {
+    grid-column: span 2;
+    background-color: #0d6efd;
+    color: white;
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #084cd6;
+    }
+  }
+}

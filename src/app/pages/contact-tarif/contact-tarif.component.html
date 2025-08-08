@@ -1,0 +1,32 @@
+<section class="contact-tarif">
+  <h2>Me Contacter</h2>
+
+  @if (data()) {
+    <div class="contact-infos">
+      <div class="info-block">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>{{ data()?.address }}</p>
+      </div>
+      <div class="info-block">
+        <i class="fas fa-phone"></i>
+        <p>{{ data()?.phone }}</p>
+      </div>
+      <div class="info-block">
+        <i class="fas fa-envelope"></i>
+        <p>{{ data()?.email }}</p>
+      </div>
+    </div>
+
+  }
+
+  <h2>Tarifs</h2>
+  <div class="tarif-grid">
+    @for (tarif of tarifs(); track tarif.id) {
+      <div class="tarif-card">
+        <h3>{{ tarif.titre }}</h3>
+        <p class="prix">{{ tarif.prix | currency:'EUR':'symbol':'1.0-2' }}</p>
+        <p class="desc">{{ tarif.description }}</p>
+      </div>
+    }
+  </div>
+</section>

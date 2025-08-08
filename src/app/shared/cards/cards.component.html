@@ -1,11 +1,11 @@
-<div class="card">
-  <img *ngIf="imageUrl" [src]="imageUrl" alt="{{ title }}" class="card-image" />
-
-  <h2 class="card-title">{{ title }}</h2>
-  <p class="card-subtitle" [innerHTML]="subtitle"></p>
-  <p class="card-excerpt">{{ excerpt }}</p>
-
-  <a [routerLink]="['/page', targetSlug]" class="card-button">
-    {{ buttonText }}
-  </a>
+<div class="container-glass">
+  <img class="img"
+       width="400"
+       height="250"
+       ngSrc="{{imageUrl}}"
+       alt="">
+  <p class="text">
+    {{ excerpt }}
+  </p>
+  <button class="btn">{{ buttonText }}</button>
 </div>

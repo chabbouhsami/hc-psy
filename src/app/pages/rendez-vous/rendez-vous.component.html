@@ -1,0 +1,27 @@
+<section class="form-container">
+  <h2>Prendre rendez-vous</h2>
+
+  <form (ngSubmit)="submitForm()" #form="ngForm">
+    <input type="text" name="nom" [(ngModel)]="formData.nom" placeholder="Nom complet" required/>
+    <input type="email" name="email" [(ngModel)]="formData.email" placeholder="Email" required/>
+    <input type="tel" name="tel" [(ngModel)]="formData.tel" placeholder="Téléphone"/>
+    <input type="datetime-local" name="date" [(ngModel)]="formData.date" required/>
+    <textarea name="message" [(ngModel)]="formData.message" placeholder="Motif du rendez-vous"></textarea>
+    <button type="submit">Envoyer la demande</button>
+  </form>
+</section>
+<section class="form-container">
+  <h2>Prendre rendez-vous</h2>
+
+  <div class="calendly-section">
+    <p>Choisissez un créneau dans le calendrier ci-dessous :</p>
+    <iframe
+      src="https://calendly.com/chabbouh-sami/30min"
+      width="100%"
+      height="600"
+      frameborder="0"
+      scrolling="no"
+      allowtransparency="true">
+    </iframe>
+  </div>
+</section>

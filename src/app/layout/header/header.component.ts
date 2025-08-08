@@ -1,23 +1,29 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, inject, signal } from '@angular/core';
+import { doc, Firestore, getDoc } from '@angular/fire/firestore';
+import { RouterModule } from '@angular/router';
+import { SiteData } from '../../shared/models/site-data';
 
 @Component({
-    selector: 'app-header',
-    imports: [
-        RouterLink,
-        RouterLinkActive
-    ],
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.scss'
+  selector: 'app-header',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  menuOpen = false;
+  private readonly firestore = inject(Firestore);
+  siteData = signal<SiteData | null>(null);
 
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
+  constructor() {
+    this.loadSiteData();
   }
 
-  closeMenu() {
-    this.menuOpen = false;
+  private async loadSiteData() {
+    const ref = doc(this.firestore, 'siteData/infos');
+    const snap = await getDoc(ref);
+    if (snap.exists()) {
+      this.siteData.set(snap.data() as any);
+    }
   }
 }

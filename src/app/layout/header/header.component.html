@@ -1,19 +1,21 @@
-<header class="site-header">
-  <div class="container">
-    <div class="header-top">
-      <h1 class="logo">Nom du cabinet</h1>
+@if (siteData()) {
+  <div
+    class="hero"
+    [style.background-image]="'url(' + siteData()!.headerImageUrl + ')'"
+  >
+    <div class="overlay">
+      <h1 class="name">{{ siteData()!.name }}</h1>
+      <p class="speciality">{{ siteData()!.speciality }}</p>
 
-      <button class="hamburger" (click)="toggleMenu()">
-        ☰
-      </button>
+      <div class="contact">
+        <p>📞 {{ siteData()!.phone }}</p>
+        <p>✉️ {{ siteData()!.email }}</p>
+        <p>N° ADELI : {{ siteData()!.adeli }}</p>
+      </div>
+
+      <a routerLink="/prendre-rendez-vous" class="btn-rdv">
+        Prendre rendez-vous
+      </a>
     </div>
-
-    <nav class="main-nav" [class.open]="menuOpen">
-      <a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Accueil</a>
-      <a routerLink="/page/qui-suis-je" routerLinkActive="active" (click)="closeMenu()">Qui suis-je</a>
-      <a routerLink="/page/prestations" routerLinkActive="active" (click)="closeMenu()">Prestations</a>
-      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
-      <a routerLink="/rdv" routerLinkActive="active" (click)="closeMenu()">Prendre RDV</a>
-    </nav>
   </div>
-</header>
+}

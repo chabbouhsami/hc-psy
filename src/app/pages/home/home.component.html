@@ -1,9 +1,11 @@
-<app-card
-  *ngFor="let card of cards"
-  [title]="card.title"
-  [subtitle]="card.subtitle"
-  [excerpt]="card.excerpt"
-  [imageUrl]="card.imageUrl"
-  [buttonText]="card.buttonText"
-  [targetSlug]="card.targetSlug">
-</app-card>
+<div class="home-cards">
+  @for (card of cards$ | async; track card) {
+    <app-cards
+      [title]="card.title"
+      [subtitle]="card.subtitle"
+      [excerpt]="card.excerpt"
+      [imageUrl]="card.imageUrl"
+      [targetSlug]="card.targetSlug"
+    ></app-cards>
+  }  </div>
+

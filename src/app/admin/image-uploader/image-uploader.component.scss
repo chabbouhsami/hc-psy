@@ -1,0 +1,26 @@
+@use 'variables' as *;
+
+.image-uploader {
+  .upload-label {
+    display: inline-block;
+    cursor: pointer;
+
+    .upload-btn {
+      background-color: $color-yellow;
+      color: $color-navy;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    &:hover .upload-btn {
+      background-color: darken($color-yellow, 10%);
+    }
+  }
+
+  p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+}

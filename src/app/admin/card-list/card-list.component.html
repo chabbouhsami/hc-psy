@@ -1,1 +1,60 @@
-<p>card-list works!</p>
+<table>
+  <tr>
+    <th>Titre</th>
+    <th>Slug</th>
+    <th>Actions</th>
+  </tr>
+  @for (card of cards$|async; track card) {
+    <tr>
+      <td>{{ card.title }}</td>
+      <td>{{ card.targetSlug }}</td>
+      <td>
+        <button (click)="openModal(card)">Modifier</button>
+        <button (click)="delete(card.id!)">Supprimer</button>
+      </td>
+    </tr>
+  }
+</table>
+
+<!-- Modal -->
+@if (selectedCard) {
+  <div class="modal-backdrop">
+    <div class="modal">
+      <h2>Modifier la card</h2>
+
+      <label>Titre</label>
+      <input type="text" [(ngModel)]="selectedCard.title"/>
+
+      <label>Sous-titre</label>
+      <input type="text" [(ngModel)]="selectedCard.subtitle"/>
+
+      <label>Texte</label>
+      <textarea [(ngModel)]="selectedCard.excerpt"></textarea>
+
+      <label>Image URL</label>
+      <input type="file" (change)="onFileSelected($event)"/>
+      @if (selectedCard.imageUrl) {
+        <img [src]="selectedCard.imageUrl" alt="Aperçu" style="max-width: 120px; margin-top: 0.5rem;"/>
+      }
+      <label>Slug cible</label>
+      <input type="text" [(ngModel)]="selectedCard.targetSlug"/>
+
+      <label>Contenu</label>
+      <editor
+        apiKey="dnzujvfktmyrqgfk1ge5wveoeyns94r8gc6hu81vw2ppj1hf"
+        [(ngModel)]="selectedCard.content"
+        [init]="{
+        height: 300,
+        menubar: false,
+        plugins: 'link image code lists',
+        toolbar: 'undo redo | formatselect | bold italic underline | bullist numlist | link image | code',
+        branding: false
+    }"
+      ></editor>
+      <div class="modal-actions">
+        <button (click)="saveChanges()">💾 Enregistrer</button>
+        <button class="cancel" (click)="closeModal()">Annuler</button>
+      </div>
+    </div>
+  </div>
+}

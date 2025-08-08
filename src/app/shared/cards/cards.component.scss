@@ -1,51 +1,82 @@
-.card {
-  background-color: #fff;
-  padding: 2rem 1.5rem;
+@use "variables" as *;
+
+.container-glass,
+.container-glass::before,
+.container-glass::after {
   border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  max-width: 500px;
-  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.08);
+}
 
-  .card-image {
+.container-glass {
+  position: relative;
+  padding: 2rem 1.5rem;
+  width: 90%;
+  max-width: 320px;
+  margin: 1rem auto;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    height: 80px;
+    width: 80px;
+    top: -10px;
+    left: -40px;
+    background: linear-gradient(45deg, $color-navy, $primary-color);
+    z-index: -1;
+    border-radius: 50%;
+    opacity: 0.25;
+  }
+
+  &::after {
+    height: 40px;
+    width: 40px;
+    bottom: 20px;
+    right: -10px;
+    background: linear-gradient(45deg, $color-navy, $primary-color);
+    z-index: 2;
+    border-radius: 50%;
+    opacity: 0.2;
+  }
+
+  .img {
     width: 100%;
-    max-height: 200px;
-    object-fit: contain;
-    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
   }
 
-  .card-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    color: #375853;
+  .text {
+    font-size: 0.95rem;
+    color: $color-text;
+    margin: 1.5rem 0;
+    text-align: justify;
   }
 
-  .card-subtitle {
-    font-weight: 500;
-    font-size: 1rem;
-    color: #b68e4d;
-    margin-bottom: 1.5rem;
-  }
-
-  .card-excerpt {
-    color: #444;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1.8rem;
-  }
-
-  .card-button {
-    display: inline-block;
-    background-color: #d0805a;
-    color: white;
-    padding: 0.7rem 1.2rem;
-    border-radius: 6px;
+  .btn {
+    display: block;
+    margin: auto;
+    font-size: 0.95rem;
+    width: 80%;
+    max-width: 200px;
+    padding: 0.6rem 1rem;
+    background-color: transparent;
+    border: 1px solid $color-navy;
+    border-radius: 25px;
+    color: $color-navy;
+    cursor: pointer;
+    text-align: center;
     text-decoration: none;
-    font-weight: 500;
+    transition: all 0.2s linear;
 
     &:hover {
-      opacity: 0.9;
+      background-color: $color-navy;
+      color: $secondary-color;
     }
   }
 }
